@@ -1,18 +1,20 @@
+%define upstream_name    Regexp-Parser
+%define upstream_version 0.20
+
 %define _requires_exceptions perl(Regexp::Parser::Diagnostics)\\|perl(Regexp::Parser::Handlers)\\|perl(Regexp::Parser::Objects)
 
-%define real_name Regexp-Parser
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	Regexp::Parser - base class for parsing regexes
-Name:		perl-%{real_name}
-Version:	0.20
-Release: %mkrel 7
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Regexp/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module parses regular expressions (regexes). Its default
@@ -23,7 +25,7 @@ way of extracting a complete grammar. This may change in future
 versions.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -48,4 +50,3 @@ rm -rf %{buildroot}
 %{perl_vendorlib}/Regexp/Parser.pm
 %{perl_vendorlib}/Perl6/Rule/Parser.pm
 %{_mandir}/*/*
-
