@@ -1,5 +1,5 @@
 %define upstream_name    Regexp-Parser
-%define upstream_version 0.20
+%define upstream_version 0.21
 
 %define _requires_exceptions perl(Regexp::Parser::Diagnostics)\\|perl(Regexp::Parser::Handlers)\\|perl(Regexp::Parser::Objects)
 
