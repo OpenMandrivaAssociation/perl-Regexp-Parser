@@ -1,6 +1,4 @@
 %define upstream_name    Regexp-Parser
-%define upstream_version 0.21
-
 %if %{_use_internal_dependency_generator}
 %define __noautoreq 'perl\\(Regexp::Parser::Diagnostics\\)|perl\\(Regexp::Parser::Handlers\\)|perl\\(Regexp::Parser::Objects\\)'
 %else
@@ -8,14 +6,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	0.21
+Release:	5
 
 Summary:	Regexp::Parser - base class for parsing regexes
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Regexp/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Regexp/%{upstream_name}-%{version}.tar.bz2
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -30,7 +28,7 @@ way of extracting a complete grammar. This may change in future
 versions.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -59,9 +57,7 @@ make test
 
 * Mon Aug 03 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.200.0-1mdv2010.0
 + Revision: 408043
-- rebuild using %%perl_convert_version
-
-* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.20-7mdv2009.0
+- rebuild using %0.21 Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.20-7mdv2009.0
 + Revision: 258326
 - rebuild
 
